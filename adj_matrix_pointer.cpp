@@ -13,7 +13,7 @@ enum colour
 	GREEN
 };
 
-bool is_Bipartite(int graph_number, int V, vector<vector<vector<int>>> &adjacency_lists)
+bool is_Bipartite(int graph_number, int V, int ***adjacency_lists)
 {
 	vector<int> color(V, NO_COLOR);
 	queue<int> BFS_queue;
@@ -49,33 +49,32 @@ bool is_Bipartite(int graph_number, int V, vector<vector<vector<int>>> &adjacenc
 	return true;
 }
 
-int Load_graph(vector<vector<vector<int>>> &adjacency_lists)
+int Load_graph(int ***&adjacency_lists, int *&number_of_vertexes)
 {
-	ifstream test_file("test.txt", ios::in);
+	ifstream test_file("test_adj_matrix.txt", ios::in);
 	if (!test_file.is_open())
 		cerr << "Failed to open file.\n";
 	else
 	{
 		int number_of_graphs, V;
 		int tmp;
-		vector<int> edge;
-		vector<vector<int>> adjacency_list;
 		test_file >> number_of_graphs;
+		adjacency_lists = new int **[number_of_graphs];
+		number_of_vertexes = new int[number_of_graphs];
 		for (int n = 0; n < number_of_graphs; n++)
 		{
 			test_file >> V;
-			adjacency_list.clear();
+			adjacency_lists[n] = new int *[V];
+			number_of_vertexes[n] = V;
 			for (int i = 0; i < V; i++)
 			{
-				edge.clear();
+				adjacency_lists[n][i] = new int[V];
 				for (int j = 0; j < V; j++)
 				{
 					test_file >> tmp;
-					edge.push_back(tmp);
+					adjacency_lists[n][i][j] = tmp;
 				}
-				adjacency_list.push_back(edge);
 			}
-			adjacency_lists.push_back(adjacency_list);
 		}
 		test_file.close();
 		return number_of_graphs;
@@ -88,12 +87,14 @@ int main()
 	clock_t t1, t2;
 
 	int number_of_graphs;
-	vector<vector<vector<int>>> data;
-	number_of_graphs = Load_graph(data);
+	int ***data;
+	int *number_of_vertexes;
+	number_of_graphs = Load_graph(data, number_of_vertexes);
+
 	for (int i = 0; i < number_of_graphs; i++)
 	{
 		t1 = clock();
-		if (is_Bipartite(i, data[i].size(), data))
+		if (is_Bipartite(i, number_of_vertexes[i], data))
 			cout << "True\n";
 		else
 			cout << "False\n";

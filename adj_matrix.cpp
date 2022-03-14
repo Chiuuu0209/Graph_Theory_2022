@@ -27,18 +27,20 @@ bool is_Bipartite(int graph_number, int V, vector<vector<vector<int>>> &adjacenc
 			{
 				int queue_front = BFS_queue.front();
 				BFS_queue.pop();
-				for (int j = 0; j < adjacency_lists[graph_number][queue_front].size(); j++)
+				for (int j = 0; j < V; j++)
 				{
-					int adjacent_vertex = adjacency_lists[graph_number][queue_front][j];
-					if (color[adjacent_vertex] == color[queue_front])
-						return false;
-					if (!color[adjacent_vertex])
+					if (adjacency_lists[graph_number][queue_front][j]) // true:adjacent
 					{
-						BFS_queue.push(adjacent_vertex);
-						if (color[queue_front] == BLUE)
-							color[adjacent_vertex] = GREEN;
-						else
-							color[adjacent_vertex] = BLUE;
+						if (color[j] == color[queue_front])
+							return false;
+						if (!color[j])
+						{
+							BFS_queue.push(j);
+							if (color[queue_front] == BLUE)
+								color[j] = GREEN;
+							else
+								color[j] = BLUE;
+						}
 					}
 				}
 			}
@@ -49,30 +51,27 @@ bool is_Bipartite(int graph_number, int V, vector<vector<vector<int>>> &adjacenc
 
 int Load_graph(vector<vector<vector<int>>> &adjacency_lists)
 {
-	ifstream test_file("test.txt", ios::in);
+	ifstream test_file("test_adj_matrix.txt", ios::in);
 	if (!test_file.is_open())
 		cerr << "Failed to open file.\n";
 	else
 	{
 		int number_of_graphs, V;
-		string s, tmp;
+		int tmp;
 		vector<int> edge;
 		vector<vector<int>> adjacency_list;
 		test_file >> number_of_graphs;
 		for (int n = 0; n < number_of_graphs; n++)
 		{
 			test_file >> V;
-			getline(test_file, s);
 			adjacency_list.clear();
 			for (int i = 0; i < V; i++)
 			{
-				getline(test_file, s);
-				istringstream istr(s);
 				edge.clear();
-				while (istr >> tmp)
+				for (int j = 0; j < V; j++)
 				{
-					int value = stoi(tmp);
-					edge.push_back(value - 1);
+					test_file >> tmp;
+					edge.push_back(tmp);
 				}
 				adjacency_list.push_back(edge);
 			}

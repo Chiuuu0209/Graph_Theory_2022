@@ -7,11 +7,11 @@
   |----Project_report.docs  //NUFINISH
   |----Makefile             //NUFINISH
   |----Biopartite.cpp
-  |----benchmarks
+  |----test_cases
      |----11.txt
      |----12.txt
      |----13.txt
-     |----test.txt
+     |----test_adj_list.txt
      |----test_adj_matrix.txt
      |----benchmarks.jpg
   |----open_banchmarks
@@ -25,18 +25,21 @@
      |----8.txt
      |----9.txt
      |----10.txt
-     |----test.txt
+     |----test_adj_list.txt
      |----test_adj_matrix.txt
      |----open_benchmarks_1.jpg
      |----open_benchmarks_2.jpg
 ```
 ## input file:
 ```
-test.txt
+/test_cases/test_adj_matrix.txt
+/test_cases/test_adj_list.txt
+/open_benchmarks/test_adj_matrix.txt
+/open_benchmarks/test_adj_list.txt
 ...
 ```
 
-## test_case(.txt)
+## test_case(test_adj_list.txt)
 ```
 number of graphs
 number of vertex in this graph
@@ -49,6 +52,17 @@ number of vertex in this graph
 adj vertex of vertex(1)
 adj vertex of vertex(2)
 adj vertex of vertex(3)
+...
+```
+
+## test_case(test_adj_matrix.txt)
+```
+number of graphs
+number of vertex in this graph
+adj matrix of this graph
+
+number of vertex in this graph
+adj matrix of this graph
 ...
 ```
 
