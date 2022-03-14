@@ -18,9 +18,15 @@
 
 ## test_case(.txt)
 ```
-[vertex number]
 adj vertex of vertex(1)
 adj vertex of vertex(2)
 adj vertex of vertex(3)
 ...
 ```
+
+## benchmarks
+![image](benchmarks/benchmarks.jpg)
+
+## open benchmarks
+![image](open_benchmarks/open_benchmarks_1.jpg)
+![image](open_benchmarks/open_benchmarks_2.jpg)
