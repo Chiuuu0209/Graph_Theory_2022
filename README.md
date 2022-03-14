@@ -12,6 +12,7 @@
      |----12.txt
      |----13.txt
      |----test.txt
+     |----test_adj_matrix.txt
      |----benchmarks.jpg
   |----open_banchmarks
      |----1.txt
@@ -25,11 +26,13 @@
      |----9.txt
      |----10.txt
      |----test.txt
+     |----test_adj_matrix.txt
      |----open_benchmarks_1.jpg
      |----open_benchmarks_2.jpg
 ```
 ## input file:
 ```
+test.txt
 ...
 ```
 
