@@ -79,7 +79,7 @@ adj matrix of this graph
 ```
 
 ## benchmarks
-![image](benchmarks/benchmarks.jpg)
+![image](test_cases/benchmarks.jpg)
 
 ## open benchmarks
 ![image](open_benchmarks/open_benchmarks_1.jpg)
