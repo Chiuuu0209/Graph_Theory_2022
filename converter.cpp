@@ -62,14 +62,14 @@ void converter(vector<vector<vector<int>>> &adjacency_lists)
                     int2 = adjacency_lists[i][j][k] + 1;
                     for (int m = 0; m < int2 - int1 - 1; m++)
                     {
-                        output_file << "0";
+                        output_file << "0 ";
                     }
-                    output_file << "1";
+                    output_file << "1 ";
                     int1 = int2;
                 }
                 for (int n = 0; n < adjacency_lists[i].size() - int2; n++)
                 {
-                    output_file << "0";
+                    output_file << "0 ";
                 }
                 output_file << endl;
             }
