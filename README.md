@@ -7,6 +7,9 @@
   |----Project_report.docs  //NUFINISH
   |----Makefile             //NUFINISH
   |----Biopartite.cpp
+  |----adj_list.cpp
+  |----adj_matrix.cpp
+  |----adj_matrix_pointer.cpp
   |----test_cases
      |----11.txt
      |----12.txt
@@ -29,6 +32,10 @@
      |----test_adj_matrix.txt
      |----open_benchmarks_1.jpg
      |----open_benchmarks_2.jpg
+  |----test_cases
+     |----adj_list.cpp
+     |----adj_matrix.cpp
+     |----adj_matrix_pointer.cpp
 ```
 ## input file:
 ```
@@ -64,6 +71,11 @@ adj matrix of this graph
 number of vertex in this graph
 adj matrix of this graph
 ...
+```
+
+## test_time folder
+```
+精準到奈秒計算時間
 ```
 
 ## benchmarks
