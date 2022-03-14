@@ -10,11 +10,13 @@
   |----adj_list.cpp
   |----adj_matrix.cpp
   |----adj_matrix_pointer.cpp
+  |----adj_list_pointer.cpp
   |----test_cases
      |----11.txt
      |----12.txt
      |----13.txt
      |----test_adj_list.txt
+     |----test_adj_list_for_pointer.txt
      |----test_adj_matrix.txt
      |----benchmarks.jpg
   |----open_banchmarks
@@ -29,6 +31,7 @@
      |----9.txt
      |----10.txt
      |----test_adj_list.txt
+     |----test_adj_list_for_pointer.txt
      |----test_adj_matrix.txt
      |----open_benchmarks_1.jpg
      |----open_benchmarks_2.jpg
@@ -36,6 +39,7 @@
      |----adj_list.cpp
      |----adj_matrix.cpp
      |----adj_matrix_pointer.cpp
+     |----adj_list_pointer.cpp
 ```
 ## input file:
 ```
@@ -59,6 +63,23 @@ number of vertex in this graph
 adj vertex of vertex(1)
 adj vertex of vertex(2)
 adj vertex of vertex(3)
+...
+```
+
+## test_case(test_adj_list_for_pointer.txt)
+```
+number of graphs
+number of vertex in this graph
+number_of_adj_vertexes adj_vertex_1_of_vertex(1)...
+number_of_adj_vertexes adj_vertex_1_of_vertex(2)...
+number_of_adj_vertexes adj_vertex_1_of_vertex(3)...
+...
+
+number of graphs
+number of vertex in this graph
+number_of_adj_vertexes adj_vertex_1_of_vertex(1)...
+number_of_adj_vertexes adj_vertex_1_of_vertex(2)...
+number_of_adj_vertexes adj_vertex_1_of_vertex(3)...
 ...
 ```
 
