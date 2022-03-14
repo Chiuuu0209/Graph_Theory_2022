@@ -94,7 +94,7 @@ void Load_graph(vector<vector<int>> &adj_list){
 				printf("values : %d\n",value);
 				edge.push_back(value);
 			}
-			adj_list.push_back(edge);
+			adj_list.push_back(edge - 1);
 		}
 		f.close();
 	}
