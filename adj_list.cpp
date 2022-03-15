@@ -86,20 +86,15 @@ int Load_graph(vector<vector<vector<int>>> &adjacency_lists)
 
 int main()
 {
-	clock_t t1, t2;
-
 	int number_of_graphs;
 	vector<vector<vector<int>>> data;
 	number_of_graphs = Load_graph(data);
 	for (int i = 0; i < number_of_graphs; i++)
 	{
-		t1 = clock();
 		if (is_Bipartite(i, data[i].size(), data))
 			cout << "True\n";
 		else
 			cout << "False\n";
-		t2 = clock();
-		printf("%lfseconds\n", (t2 - t1) / (double)(CLOCKS_PER_SEC));
 	}
 
 	return 0;

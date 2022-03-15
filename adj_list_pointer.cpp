@@ -84,21 +84,16 @@ int Load_graph(int ***&adjacency_lists, int *&number_of_vertexes)
 
 int main()
 {
-	clock_t t1, t2;
-
 	int number_of_graphs;
 	int ***data;
 	int *number_of_vertexes;
 	number_of_graphs = Load_graph(data, number_of_vertexes);
 	for (int i = 0; i < number_of_graphs; i++)
 	{
-		t1 = clock();
 		if (is_Bipartite(i, number_of_vertexes[i], data))
 			cout << "True\n";
 		else
 			cout << "False\n";
-		t2 = clock();
-		printf("%lfseconds\n", (t2 - t1) / (double)(CLOCKS_PER_SEC));
 	}
 
 	return 0;
