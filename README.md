@@ -36,7 +36,7 @@
      |----test_adj_matrix.txt
      |----open_benchmarks_1.jpg
      |----open_benchmarks_2.jpg
-  |----test_cases
+  |----test_time
      |----adj_list_time.cpp
      |----adj_matrix_time.cpp
      |----adj_matrix_pointer_time.cpp
