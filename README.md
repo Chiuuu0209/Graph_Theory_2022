@@ -16,14 +16,13 @@
      |----open_benchmarks_2.jpg
 ```
 
-### About this program
+# About this program
 ```
-Input a text file with informations of a series of graphs to examinate whether each of them is bipartite or not.
+Input a text file with informations of a series of graphs to examinate whether each of them is bipartite.
 It will print "Graph i :True" on the screen if it is bipartite or "Graph i :False" if not.
 ```
 
 ## How to compile and run
-```
 |instruction                |descripton                             |
 |  -----------------------  | ------------------------------------  |
 |make build                 |compiles bipartite.cpp to bipartite.exe|
@@ -31,7 +30,6 @@ It will print "Graph i :True" on the screen if it is bipartite or "Graph i :Fals
 |make run InputFile=FILENAME|run bipartite.exe with FILENAME        |
 |make                       |(build and run)                        |
 |make clean                 |                                       |
-```
 
 ## input_file
 ```
