@@ -1,4 +1,4 @@
-# Graph Theorey
+# Graph Theory project 1
 ---
 ## data_structure:
 ```
