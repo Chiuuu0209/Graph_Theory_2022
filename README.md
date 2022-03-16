@@ -12,6 +12,8 @@
   |----adj_matrix_pointer.cpp
   |----adj_list_pointer.cpp
   |----main_time_calculating.cpp
+  |----convert_list_to_matrix.cpp
+  |----list_add_neighbor_number.cpp
   |----test_cases
      |----11.txt
      |----12.txt
