@@ -6,51 +6,40 @@
   |----README.md
   |----Project_report.docs  //NUFINISH
   |----Makefile             //NUFINISH
-  |----Biopartite.cpp
-  |----benchmarks
-     |----11.txt
-     |----12.txt
-     |----13.txt
-     |----test.txt
-     |----benchmarks.jpg
+  |----Bipartite.cpp
+  |----test_cases
+     |----test_cases.txt
+     |----test_cases.jpg
   |----open_banchmarks
-     |----1.txt
-     |----2.txt
-     |----3.txt
-     |----4.txt
-     |----5.txt
-     |----6.txt
-     |----7.txt
-     |----8.txt
-     |----9.txt
-     |----10.txt
-     |----test.txt
+     |----open_banchmarks.txt
      |----open_benchmarks_1.jpg
      |----open_benchmarks_2.jpg
 ```
 ## input file:
 ```
+/test_cases/test_cases.txt
+/open_benchmarks/open_benchmarks.txt
 ...
 ```
 
-## test_case(.txt)
+## test_case(test_adj_list_for_pointer.txt)
 ```
-number of graphs
-number of vertex in this graph
-adj vertex of vertex(1)
-adj vertex of vertex(2)
-adj vertex of vertex(3)
+number_of_graphs
+number_of_vertex_in_graph(1)
+number_of_adj_vertexes_of_vertex(1) adj_vertex_1_of_vertex(1) adj_vertex_2_of_vertex(1)...
+number_of_adj_vertexes_of_vertex(2) adj_vertex_1_of_vertex(2)...
+number_of_adj_vertexes_of_vertex(3) adj_vertex_1_of_vertex(3)...
 ...
 
-number of vertex in this graph
-adj vertex of vertex(1)
-adj vertex of vertex(2)
-adj vertex of vertex(3)
+number_of_vertex_in_graph(2)
+number_of_adj_vertexes_of_vertex(1) adj_vertex_1_of_vertex(1) adj_vertex_2_of_vertex(1)...
+number_of_adj_vertexes_of_vertex(2) adj_vertex_1_of_vertex(2)...
+number_of_adj_vertexes_of_vertex(3) adj_vertex_1_of_vertex(3)...
 ...
 ```
 
-## benchmarks
-![image](benchmarks/benchmarks.jpg)
+## testcases
+![image](test_cases/benchmarks.jpg)
 
 ## open benchmarks
 ![image](open_benchmarks/open_benchmarks_1.jpg)
