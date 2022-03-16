@@ -7,4 +7,4 @@ run:$(InputFile)
 	./bipartite $(InputFile)
 .PHONY:clean
 clean:
-	rm -rf *.o test
+	rm -rf *.o bipartite
