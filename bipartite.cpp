@@ -14,7 +14,7 @@ enum colour
 	GREEN
 };
 
-//use BFS to test if Chromatic Number <= 2
+// use BFS to test if Chromatic Number <= 2
 bool is_Bipartite(int graph_number, int V, int ***adjacency_lists)
 {
 	vector<int> color(V, NO_COLOR);
@@ -22,7 +22,7 @@ bool is_Bipartite(int graph_number, int V, int ***adjacency_lists)
 
 	for (int i = 0; i < V; i++)
 	{
-		//new component
+		// new component
 		if (!color[i])
 		{
 			BFS_queue.push(i);
@@ -32,16 +32,16 @@ bool is_Bipartite(int graph_number, int V, int ***adjacency_lists)
 				int queue_front = BFS_queue.front();
 				BFS_queue.pop();
 
-				//adjacency vertexes
+				// adjacency vertexes
 				for (int j = 1; j <= adjacency_lists[graph_number][queue_front][0]; j++)
 				{
 					int adjacent_vertex = adjacency_lists[graph_number][queue_front][j];
-					
-					//odd cycle
+
+					// odd cycle
 					if (color[adjacent_vertex] == color[queue_front])
 						return false;
 
-					//new vertex
+					// new vertex
 					if (!color[adjacent_vertex])
 					{
 						BFS_queue.push(adjacent_vertex);
@@ -66,7 +66,7 @@ int Load_graph(string input_file, int ***&adjacency_lists, int *&number_of_verte
 
 	else
 	{
-		int number_of_graphs, V;//V : number of vertexes in one graph
+		int number_of_graphs, V; // V : number of vertexes in one graph
 		int number_of_adj_vertexes, tmp;
 
 		test_file >> number_of_graphs;
@@ -81,7 +81,7 @@ int Load_graph(string input_file, int ***&adjacency_lists, int *&number_of_verte
 
 			for (int i = 0; i < V; i++)
 			{
-				test_file >> number_of_adj_vertexes;//of one vertex
+				test_file >> number_of_adj_vertexes; // of one vertex
 				adjacency_lists[n][i] = new int[number_of_adj_vertexes + 1];
 
 				adjacency_lists[n][i][0] = number_of_adj_vertexes;
@@ -116,7 +116,7 @@ struct timespec diff(struct timespec start, struct timespec end)
 	return temp;
 }
 
-int main(int argc, char** argv)
+int main(int argc, char **argv)
 {
 	///////////////////////////////////////////////////////////////////////////////
 	// to calculate the total execution time of one case
@@ -129,17 +129,33 @@ int main(int argc, char** argv)
 	///////////////////////////////////////////////////////////////////////////////
 
 	int number_of_graphs;
-	int ***data;//data structure : adj. list
-	int *number_of_vertexes;//of each graphs
-	string input_file = argv[1];//input file name
+	int ***data;				 // data structure : adj. list
+	int *number_of_vertexes;	 // of each graphs
+	string input_file = argv[1]; // input file name
 
 	number_of_graphs = Load_graph(input_file, data, number_of_vertexes);
 	for (int i = 0; i < number_of_graphs; i++)
 	{
+		///////////////////////////////////////////////////////////////////////////////
+		// to calculate the execution time
+		clock_gettime(CLOCK_MONOTONIC, &time_sub_1);
+		///////////////////////////////////////////////////////////////////////////////
+
+		cout << "Graph " << i + 1 << " :";
+
 		if (is_Bipartite(i, number_of_vertexes[i], data))
 			cout << "True\n";
 		else
 			cout << "False\n";
+
+		///////////////////////////////////////////////////////////////////////////////
+		// to calculate the execution time of graph
+		clock_gettime(CLOCK_MONOTONIC, &time_sub_2);
+		struct timespec temp = diff(time_sub_1, time_sub_2);
+		time_used_sub = temp.tv_sec + (double)temp.tv_nsec / 1000000.0;
+		cout << "The program execution time of this case is: " << time_used_sub << "ms" << endl;
+		cout << "-----------------------------------------------------" << endl;
+		///////////////////////////////////////////////////////////////////////////////
 	}
 
 	///////////////////////////////////////////////////////////////////////////////
