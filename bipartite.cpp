@@ -136,26 +136,12 @@ int main(int argc, char **argv)
 	number_of_graphs = Load_graph(input_file, data, number_of_vertexes);
 	for (int i = 0; i < number_of_graphs; i++)
 	{
-		///////////////////////////////////////////////////////////////////////////////
-		// to calculate the execution time
-		clock_gettime(CLOCK_MONOTONIC, &time_sub_1);
-		///////////////////////////////////////////////////////////////////////////////
-
 		cout << "Graph " << i + 1 << " :";
 
 		if (is_Bipartite(i, number_of_vertexes[i], data))
 			cout << "True\n";
 		else
 			cout << "False\n";
-
-		///////////////////////////////////////////////////////////////////////////////
-		// to calculate the execution time of graph
-		clock_gettime(CLOCK_MONOTONIC, &time_sub_2);
-		struct timespec temp = diff(time_sub_1, time_sub_2);
-		time_used_sub = temp.tv_sec + (double)temp.tv_nsec / 1000000.0;
-		cout << "The program execution time of this case is: " << time_used_sub << "ms" << endl;
-		cout << "-----------------------------------------------------" << endl;
-		///////////////////////////////////////////////////////////////////////////////
 	}
 
 	///////////////////////////////////////////////////////////////////////////////

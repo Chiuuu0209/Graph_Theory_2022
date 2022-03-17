@@ -55,24 +55,23 @@ int Load_graph(vector<vector<vector<int>>> &adjacency_lists)
 	else
 	{
 		int number_of_graphs, V;
-		string s, tmp;
+		int number_of_adj_vertexes, tmp;
+		string s;
 		vector<int> edge;
 		vector<vector<int>> adjacency_list;
 		test_file >> number_of_graphs;
 		for (int n = 0; n < number_of_graphs; n++)
 		{
 			test_file >> V;
-			getline(test_file, s);
 			adjacency_list.clear();
 			for (int i = 0; i < V; i++)
 			{
-				getline(test_file, s);
-				istringstream istr(s);
 				edge.clear();
-				while (istr >> tmp)
+				test_file >> number_of_adj_vertexes;
+				for (int j = 0; j < number_of_adj_vertexes; j++)
 				{
-					int value = stoi(tmp);
-					edge.push_back(value - 1);
+					test_file >> tmp;
+					edge.push_back(tmp - 1);
 				}
 				adjacency_list.push_back(edge);
 			}
@@ -127,7 +126,7 @@ int main()
 			cout << "True\n";
 		else
 			cout << "False\n";
-		
+
 		///////////////////////////////////////////////////////////////////////////////
 		// to calculate the execution time of graph
 		clock_gettime(CLOCK_MONOTONIC, &time_sub_2);

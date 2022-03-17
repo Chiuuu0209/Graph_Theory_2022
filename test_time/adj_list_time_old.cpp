@@ -13,7 +13,7 @@ enum colour
 	GREEN
 };
 
-bool is_Bipartite(int graph_number, int V, int ***adjacency_lists)
+bool is_Bipartite(int graph_number, int V, vector<vector<vector<int>>> &adjacency_lists)
 {
 	vector<int> color(V, NO_COLOR);
 	queue<int> BFS_queue;
@@ -27,7 +27,7 @@ bool is_Bipartite(int graph_number, int V, int ***adjacency_lists)
 			{
 				int queue_front = BFS_queue.front();
 				BFS_queue.pop();
-				for (int j = 1; j <= adjacency_lists[graph_number][queue_front][0]; j++)
+				for (int j = 0; j < adjacency_lists[graph_number][queue_front].size(); j++)
 				{
 					int adjacent_vertex = adjacency_lists[graph_number][queue_front][j];
 					if (color[adjacent_vertex] == color[queue_front])
@@ -47,7 +47,7 @@ bool is_Bipartite(int graph_number, int V, int ***adjacency_lists)
 	return true;
 }
 
-int Load_graph(int ***&adjacency_lists, int *&number_of_vertexes)
+int Load_graph(vector<vector<vector<int>>> &adjacency_lists)
 {
 	ifstream test_file("test_adj_list.txt", ios::in);
 	if (!test_file.is_open())
@@ -55,26 +55,28 @@ int Load_graph(int ***&adjacency_lists, int *&number_of_vertexes)
 	else
 	{
 		int number_of_graphs, V;
-		int number_of_adj_vertexes, tmp;
+		string s, tmp;
+		vector<int> edge;
+		vector<vector<int>> adjacency_list;
 		test_file >> number_of_graphs;
-		adjacency_lists = new int **[number_of_graphs];
-		number_of_vertexes = new int[number_of_graphs];
 		for (int n = 0; n < number_of_graphs; n++)
 		{
 			test_file >> V;
-			adjacency_lists[n] = new int *[V];
-			number_of_vertexes[n] = V;
+			getline(test_file, s);
+			adjacency_list.clear();
 			for (int i = 0; i < V; i++)
 			{
-				test_file >> number_of_adj_vertexes;
-				adjacency_lists[n][i] = new int[number_of_adj_vertexes + 1];
-				adjacency_lists[n][i][0] = number_of_adj_vertexes;
-				for (int j = 1; j < number_of_adj_vertexes + 1; j++)
+				getline(test_file, s);
+				istringstream istr(s);
+				edge.clear();
+				while (istr >> tmp)
 				{
-					test_file >> tmp;
-					adjacency_lists[n][i][j] = tmp - 1;
+					int value = stoi(tmp);
+					edge.push_back(value - 1);
 				}
+				adjacency_list.push_back(edge);
 			}
+			adjacency_lists.push_back(adjacency_list);
 		}
 		test_file.close();
 		return number_of_graphs;
@@ -112,9 +114,8 @@ int main()
 	///////////////////////////////////////////////////////////////////////////////
 
 	int number_of_graphs;
-	int ***data;
-	int *number_of_vertexes;
-	number_of_graphs = Load_graph(data, number_of_vertexes);
+	vector<vector<vector<int>>> data;
+	number_of_graphs = Load_graph(data);
 	for (int i = 0; i < number_of_graphs; i++)
 	{
 		///////////////////////////////////////////////////////////////////////////////
@@ -122,11 +123,11 @@ int main()
 		clock_gettime(CLOCK_MONOTONIC, &time_sub_1);
 		///////////////////////////////////////////////////////////////////////////////
 
-		if (is_Bipartite(i, number_of_vertexes[i], data))
+		if (is_Bipartite(i, data[i].size(), data))
 			cout << "True\n";
 		else
 			cout << "False\n";
-
+		
 		///////////////////////////////////////////////////////////////////////////////
 		// to calculate the execution time of graph
 		clock_gettime(CLOCK_MONOTONIC, &time_sub_2);
