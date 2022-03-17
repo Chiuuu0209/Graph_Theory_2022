@@ -4,8 +4,8 @@
 ```
 ----Team_N_E24076831_E24076475
   |----README.md
-  |----Project_report.docs  //NUFINISH
-  |----Makefile             //NUFINISH
+  |----Project_report.docs  
+  |----Makefile             
   |----Bipartite.cpp
   |----test_cases
      |----test_cases.txt
