@@ -1,0 +1,45 @@
+Deadline: 3/17
+
+Your_Team_SchoolIDs
+–README
+–Project report.docx
+	•You need to briefly show your design cases with graphs.
+–Program source codes
+	•*.cpp
+	•*.h
+	•Makefile
+	•Your test cases(in coding style)
+–We have announced benchmarks and hidden cases, you don’t need to hand in them again. Just give us your designed test cases.
+
+README
+–Introduce your project briefly
+–How to compile you code (with Makefilestyle) : make
+–What command option should be used if any (e.g. –h)
+
+Report
+–Explain what you have done for performance improvements
+–Show the execution time for each your own case and open benchmark
+
+Bonus:應用/有向
+
+
+1. 每組報告時間為15分鐘，其中前10分鐘為各組使用 PPT 投影片講解各自實作出來的 Project 1 內容，剩下的5分鐘為 Q&A。
+
+2. 每組的報告內容至少須包括 
+	對問題的理解、
+	輸入檔案的形式及原因、
+	演算法的介紹、
+	如何 improve 程式運行的效率(要呈現出 improve 前後的程式執行效率比較)、
+	跑 open benchmarks 的程式執行時間及判斷結果，
+	以及說明實作出的 Bonus 功能(如果有做的話)。
+	若有透過任何 coding 的技巧去呈現想法或是 improve 程式效率，請在報告時秀出那段 code 的重點部分，並對其進行講解。
+
+3.report:如何針對這個問題去設計程式、輸入檔案、儲存graph的資料結構、如何將open benchmarks變成input file、分工表
+
+繳交格式
+上傳的檔案須為一個 .zip 的壓縮檔，命名規則的範例如下：「Team_A_N26100000_N26100001」，也就是組別編號，以及組員各自學號。
+壓縮檔中，須包含一個和壓縮檔相同檔名的資料夾，該資料夾中的檔案結構，則請參考 Project 1 的簡報說明，
+須包含一個 README 的文件檔，一個 Project report 的 .docx 檔，一個 Makefile 檔案，
+「一個」已經依照你們的輸入格式去寫好的，包含 10 個 open cases 的 input file (這個 file 的命名請自行決定，但需要能夠被你們的程式吃到)，
+以及其他你程式編譯時要用到的 .h、.cpp 檔案。
+
